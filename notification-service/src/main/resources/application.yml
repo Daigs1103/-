@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: notification-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: public
+  datasource:
+    url: jdbc:mysql://localhost:3306/campus_trade?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: campuser
+    password: campuser@123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    host: localhost
+    port: 6379
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: your-email@qq.com
+    password: your-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+server:
+  port: 8005
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    root: info
+    com.campus.trade: debug
+  file:
+    name: logs/notification-service.log
